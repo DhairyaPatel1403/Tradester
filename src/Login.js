@@ -2,9 +2,12 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import './style.css';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { login } from './actions/loginActions';
 
 
 export const Login = () => {
+    const dispatch = useDispatch();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -33,6 +36,7 @@ export const Login = () => {
         try {
             const response = await axios.post('http://localhost:3002/signin', { email, password });
             console.log(response.data.message); // This should be the server's response message
+            dispatch(login());
         } 
         catch (error) {
             console.error('Error signing in:', error.message);
@@ -50,6 +54,7 @@ export const Login = () => {
         try {
             const response = await axios.post('http://localhost:3002/signup', { name, email, password, pan });
             console.log(response.data.message); // This should be the server's response message
+            dispatch(login());
         } 
         catch (error) {
             console.error('Error signing in:', error.message);

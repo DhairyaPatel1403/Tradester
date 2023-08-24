@@ -72,7 +72,7 @@ app.all('/signup', async (req, res) => {
       
         
         res.status(201).json({ message: 'User registered successfully' });
-        res.redirect('/main');
+        res.redirect('/');
     }
     
   } catch (error) {
@@ -86,7 +86,7 @@ app.all('/signin', async (req, res) => {
     const user = await User.findOne({ email, password });
     if (user) {
       res.status(200).json({ message: 'Sign in successful' });
-      res.redirect('/Main');
+      res.redirect('/');
     } else {
       res.status(401).json({ message: 'Invalid credentials' });
     }
