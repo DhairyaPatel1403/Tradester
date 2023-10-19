@@ -5,10 +5,14 @@ import { Home } from './Home';
 import { Main } from './Main';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Stockdet } from './Stockdet';
+import { Transaction } from './Transaction';
+import { History } from './History';
+import { Contact } from './Contact';
 
 function App() {
 
-  const loggedIn = useSelector(state => state.login.loggedIn);
+  const loggedIn = true
 
 
   return (
@@ -19,6 +23,10 @@ function App() {
             <Route exact path='/' element={loggedIn ? <Home/> : <Main/>}></Route>  
             <Route exact path='/login' element={< Login />}></Route>
             <Route exact path='/Main' element={< Main />}></Route>
+            <Route exact path='/stock-det/:id' element={< Stockdet />}></Route>
+            <Route exact path='/transaction' element={< Transaction />}></Route>
+            <Route exact path='/History' element={< History />}></Route>
+            <Route exact path='/Contact' element={< Contact />}></Route>
           </Routes>
 
       </Router>
@@ -29,3 +37,5 @@ function App() {
 }
 
 export default App;
+
+

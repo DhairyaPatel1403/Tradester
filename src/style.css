@@ -253,7 +253,7 @@ input {
 	margin-left: 20%;
 
 }
-home .homecontainer .image{
+.home .homecontainer .image{
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -269,22 +269,30 @@ home .homecontainer .image{
 	
 }
 
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200&display=swap');
+
 /* Navbar container */
 .navbar {
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-family: 'Nunito Sans', sans-serif;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-color: #dbd8d860;
-	color: rgb(0, 0, 0);
+	color: rgb(255, 236, 221);
 	padding: 10px 20px;
-	backdrop-filter: blur(10px); 
-	backdrop-filter: brightness(1.2); /* Adjust brightness for a cleaner glass effect */
+	background-color: rgba(223, 109, 43, 0.85); /* Apply some transparency */
+	border-bottom: 1px solid black;
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(10px); /* Apply a blur effect */
+	
   }
+  
   
   /* Branding/logo */
   .navbar-brand {
 	font-size: 3vw;
+	color: rgb(88, 60, 8);
+	font-weight: 800;
   }
   
   /* Navigation menu */
@@ -298,6 +306,8 @@ home .homecontainer .image{
 	cursor: pointer;
 	font-size: 1.5vw;
   }
+
+
   
   /* Change color on hover */
   .navbar-item:hover {
@@ -306,11 +316,17 @@ home .homecontainer .image{
 
 .main{
 	height:100vh;
-	background-color: rgb(223, 82, 58);
+	background-color: #041322;
+}
+.history-main{
+	height:100vh;
+	background-color: #041322;
+	padding-top: 30px;
 }
   
 .index-container {
     white-space: nowrap; /* Prevents line breaks between elements */
+	width: 95%;
 }
 
 .index-text, .index-card {
@@ -322,8 +338,245 @@ home .homecontainer .image{
 	width: 40%;
 }
 .index-card{
-	background-color: #0c5a79;
-	width: 85%;
+	background: rgba(255, 255, 255, 0.185);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+
+	width: 100%;
 	height: 200px;
-	margin-top: 20px;
+	margin-top: 50px;
+}
+
+.wallet{
+	width: 20%;
+	height: 85vh;
+	box-shadow: 0px 4px 6px rgba(0.8, 0.8, 0.8, 0.8); 
+	font-family: 'Nunito Sans', sans-serif;
+	margin: 15px;
+	background-color: rgba(236, 222, 214, 0.356);
+
+	overflow-y: scroll;
+    white-space: nowrap;
+    overflow: scroll;
+}
+
+
+.dashboard {
+    display: flex;
+	
+}
+
+.wallet-head{
+	font-size: 2vw;
+	color: rgb(255, 145, 0);
+	margin-bottom: 20px;
+}
+
+.wallet-stock-container{
+	display: grid;
+	place-items: center;
+	width: 100%;
+}
+
+.wallet-stock{
+	width: 90%;
+	box-shadow: 0px 4px 6px rgba(0.8, 0.8, 0.8, 0.8); 
+	background-color: #dddddd23;
+	height: 70px;
+	margin-bottom: 20px;
+	color: rgb(191, 241, 10);
+	font-weight: 800;
+	cursor: pointer;
+}
+.wallet-stock-name{
+	color: #fff;
+	font-weight: 900;
+}
+
+.wallet-details{
+	display: flex;
+	justify-content: space-evenly;
+	overflow: scroll;
+	font-weight: 800;
+	font-size: 0.8vw;
+}
+
+.wallet-stock-current{
+	color: tomato;
+}
+.wallet-stock-bought {
+   color: greenyellow;
+}
+
+
+.stock-container{
+    display: flex;
+    flex-wrap: wrap;
+
+    max-width: 100%;
+
+	
+}
+
+.stock{
+
+	background-color: #dddddd81;
+	margin: 10px;
+
+	flex-basis: calc(30% ); /* Adjust this value as needed to add spacing */
+    margin-bottom: 10px; /* Optional spacing between rows */
+
+	height: 20vh;
+
+	cursor: pointer;
+	
+}
+
+.right{
+	display: grid;
+	width: 90%;
+	overflow: scroll;
+}
+
+.stock-heading{
+	font-family: 'Nunito Sans', sans-serif;
+	font-size: 1.5vw;
+	color: rgb(26, 10, 1);
+	font-weight: 800;
+}
+
+.stock-det{
+	height: 100vh;
+	background-color: #041322;
+	color: white;
+	font-family: 'Nunito Sans', sans-serif;
+	padding-top: 20px;
+
+}
+
+.stock-card{
+	background-color: #ad5624e3;
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+	box-shadow: 0 0px 20px -4px rgba(241, 241, 241, 0.315),
+    0 2px 4px -1px rgba(255, 255, 255, 0.089);
+	width: 50%;
+}
+
+.add-btn{
+	background-color: #d37130;
+	width: fit-content;
+	padding: 5px;
+	height: fit-content;
+	margin: 5px;
+	color: black;
+	font-weight: 800;
+	font-size: 1vw;
+}
+
+.transaction-box{
+	display: grid;
+	justify-content: center;
+	background-color: #394858;
+	height: 100vh;
+}
+
+.transaction-container {
+	background: rgba(252, 250, 250, 0.185);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+
+	border-radius: 10px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	overflow: hidden;
+	width: 800px;
+	max-width: 100%;
+	min-height: 500px;
+	height: 50%;
+
+	margin-top: 10vh;
+}
+
+.buysell{
+	background-color: #d6623ee3;
+	box-shadow: 0 0px 5px -4px rgba(241, 241, 241, 0.315),
+    0 2px 4px -1px rgba(255, 255, 255, 0.089);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 0px 0px 0px 0px solid rgba(255, 255, 255, 0.3);
+	width: 50%;
+	padding-bottom: 10px
+}
+
+
+details {
+	font-size: 1rem;
+	margin: 7em auto;
+	box-shadow: 0 20px 25px -5px rgba(255, 254, 254, 0.322),
+		0 10px 10px -5px rgba(255, 255, 255, 0.274);
+	width: 100%;
+	background: #ce540e;
+	border-radius: 8px;
+	position: relative;
+	font-weight: 800;
+	width: 500px;
+
+	.summary-title {
+		user-select: none;
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	.summary-content {
+		border-top: 1px solid #e2e8f0;
+		cursor: default;
+		padding: 1em;
+		font-weight: 300;
+		line-height: 1.5;
+	}
+
+	summary {
+		list-style: none;
+		padding: 1em;
+
+		&:focus {
+			outline: none;
+		}
+
+		&:hover .summary-chevron-up svg {
+			opacity: 1;
+		}
+	}
+
+	.summary-chevron-up svg {
+		opacity: 0.5;
+	}
+
+	.summary-chevron-up,
+	.summary-chevron-down {
+		pointer-events: none;
+		position: absolute;
+		top: 0.75em;
+		right: 1em;
+		background: #ce540e;
+
+		svg {
+			display: block;
+		}
+	}
+
+	summary::-webkit-details-marker {
+		display: none;
+	}
 }

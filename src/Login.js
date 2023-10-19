@@ -4,9 +4,13 @@ import './style.css';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { login } from './actions/loginActions';
+import { NavLink, useNavigate } from 'react-router-dom'
 
 
 export const Login = () => {
+
+    const navigate = useNavigate();
+
     const dispatch = useDispatch();
 
     const [email, setEmail] = useState("");
@@ -34,9 +38,9 @@ export const Login = () => {
         console.log('Password:', password);
 
         try {
-            const response = await axios.post('http://localhost:3002/signin', { email, password });
-            console.log(response.data.message); // This should be the server's response message
-            dispatch(login());
+
+            navigate('/Main'); 
+            
         } 
         catch (error) {
             console.error('Error signing in:', error.message);
@@ -52,12 +56,29 @@ export const Login = () => {
 
         
         try {
-            const response = await axios.post('http://localhost:3002/signup', { name, email, password, pan });
-            console.log(response.data.message); // This should be the server's response message
-            dispatch(login());
+            
+                    
+        const api = axios.create({baseURL: 'http://localhost:3002'})
+        api.post('/signup', {
+            name: name,
+            email: email,
+            password: password,
+            pan: pan
+        })
+        .then(res => {
+            console.log(res)
+            console.log(res.data.name)
+            const name = res.data.name;
+            navigate("/Main", { state: { name: name } }); 
+        })
+        .catch(error => {
+            console.log(error)
+        })
+
+     
         } 
         catch (error) {
-            console.error('Error signing in:', error.message);
+            console.error("SOME ERROR", 'Error signing in:', error.message);
         }
     };
 
@@ -71,7 +92,7 @@ export const Login = () => {
                 <h2>Create Account</h2>
                 
                 <input type="text" placeholder="Name" name="name" value={name} onChange={(e) => setName(e.target.value)}/>
-                <input type="email" placeholder="Email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                <input type="text" placeholder="Email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
                 <input type="password" placeholder="Password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <input type="text" placeholder="Your PAN Number" name="pan" value={pan} onChange={(e) => setPan(e.target.value)}/>
                 <button>Sign Up</button>
