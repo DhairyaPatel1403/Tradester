@@ -1,51 +1,50 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './style.css'
+import { useForm, ValidationError } from '@formspree/react';
+
+import { useSelector } from 'react-redux';
+import { connect } from 'react-redux';
+import { changeUserName } from './storeAction'; 
 
 export const Contact = () => {
+
+    const [query, setquery] = useState("")
+
+    const [state, handleSubmit] = useForm("mknaapvv");
+
+    const nameofuser = useSelector((state) => state.user.name);
+
+    console.log(nameofuser);
+
+
     return (
+      <div className='contactbody'>
         <center>
 
 
-      <div className="container" style={{marginTop:"50px"}}>
+      <div className="container font-style" style={{ background:"#bb5921"}}>
         
         <div style={{ textAlign: 'center' }}>
-          <h2>Contact Us</h2>
-          <p>Swing by for a cup of coffee, or leave us a message:</p>
+          <h1>Contact Us</h1>
+          <h2>Swing by for a cup of coffee, or leave us a message:</h2>
         </div>
         <div className="row">
+
           <div className="column">
-            <img src="/w3images/map.jpg" style={{ width: '100%' }} alt="Map" />
-          </div>
-          <div className="column">
-            <form action="/action_page.php">
-              <label htmlFor="fname">First Name</label>
-              <input
-                type="text"
-                id="fname"
-                name="firstname"
-                placeholder="Your name.."
-              />
-              <label htmlFor="lname">Last Name</label>
-              <input
-                type="text"
-                id="lname"
-                name="lastname"
-                placeholder="Your last name.."
-              />
-              <label htmlFor="country">Country</label>
-              <select id="country" name="country">
-                <option value="australia">Australia</option>
-                <option value="canada">Canada</option>
-                <option value="usa">USA</option>
-              </select>
-              <label htmlFor="subject">Subject</label>
+            <form onSubmit={handleSubmit} style={{ background:"#bb5921"}}>
+             
+              <h3 htmlFor="subject" style={{color:"white"}}>Write your query or feedback to us !!</h3>
+              <input id="name" name="name" value={nameofuser} />
+
               <textarea
-                id="subject"
-                name="subject"
+                onChange={(e) => setquery(e.target.value)}
+                className='textcontact'
+                id="message"
+                name="message"
                 placeholder="Write something.."
                 style={{ height: '170px' }}
               ></textarea>
-              <input type="submit" value="Submit" />
+              <button className='contactsubmit' type="submit" >Submit</button>
             </form>
           </div>
         </div>
@@ -53,6 +52,7 @@ export const Contact = () => {
       </div>
 
       </center>
+      </div>
     );
   };
   

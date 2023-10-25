@@ -20,7 +20,7 @@ function App() {
       <Router>
 
         <Routes>
-            <Route exact path='/' element={loggedIn ? <Home/> : <Main/>}></Route>  
+            <Route exact path='/' element={<Main/>}></Route>  
             <Route exact path='/login' element={< Login />}></Route>
             <Route exact path='/Main' element={< Main />}></Route>
             <Route exact path='/stock-det/:id' element={< Stockdet />}></Route>

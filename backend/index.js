@@ -117,10 +117,34 @@ app.all('/signup', async (req, res) => {
 
 
 app.all('/signin', async (req, res) => {
+  try {
+    const email = req.body.email;
+    const password = req.body.password;
 
+    if (email && password) {
+      // Find the user with the provided email in your database
+      const user = await User.findOne({ email });
 
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
 
+      // Check if the provided password matches the user's password
+      if (password !== user.password) {
+        return res.status(401).json({ message: 'Invalid password' });
+      }
+
+      // If the email and password are valid, you can consider the user signed in
+      res.status(200).json({ message: 'Signin successful', user });
+    } else {
+      return res.status(422).json({ error: 'Please enter both email and password.' });
+    }
+  } catch (error) {
+    // Handling errors and sending an error response
+    res.status(500).json({ message: 'Error signing in' });
+  }
 });
+
 
 
 
