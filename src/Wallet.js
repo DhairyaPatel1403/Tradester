@@ -60,6 +60,10 @@ export const Wallet = () => {
     const add_money = async () => {
       navigate('/transaction'); 
     };
+
+    if (nameofuser === 'robin' || nameofuser === '') {
+      return null; // Don't render anything
+    }
     
 
     

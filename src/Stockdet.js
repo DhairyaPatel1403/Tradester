@@ -184,35 +184,34 @@ export const Stockdet = () => {
 
 
   return (
-    <div className='stock-det'>
-      <center>
+  <div className='stock-det'>
+    <center>
       {Stock && (
-        
         <div className='stock-card'>
-            <h1>{Stock.name} Details</h1>
-            <p>Name: {Stock.name}</p>
-            <p>Price: {Stock.price}</p>
-            <p>Bought Price: {Stock.bought_price}</p>
-            <p>Revenue: {Stock.revenue}</p>
-            <p>Type: {Stock.type}</p>
-            <h2>Prices:</h2>
-            <ul>
-              <Line data={userData} options={chartOptions}></Line>
-            </ul>
-            <ul>
-              Highest price among all years - {highest}
-            </ul>
+          <h1>{Stock.name} Details</h1>
+          <p>Name: {Stock.name}</p>
+          <p>Price: {Stock.price}</p>
+          <p>Revenue: {Stock.revenue}</p>
+          <p>Type: {Stock.type}</p>
+          <h2>Prices:</h2>
+          <ul>
+            <Line data={userData} options={chartOptions}></Line>
+          </ul>
+          <ul>
+            Highest price among all years - {highest}
+          </ul>
         </div>
-        
-        )}
+      )}
 
+      {Stock && (Stock.name !== 'robin' && Stock.name !== '') && (
         <div className='buysell'>
           <input type="number" style={{ width: '5%' }}  onChange={(e) => setAmountstock(e.target.value)}></input><br></br>
           <button onClick={() => buy(Stock.name)}>Buy</button>
           <button onClick={() => sell(Stock.name)}>Sell</button>
         </div>
+      )}
+    </center>
+  </div>
 
-        </center>
-    </div>
   )
 }
